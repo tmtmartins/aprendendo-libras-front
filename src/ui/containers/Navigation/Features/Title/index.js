@@ -1,6 +1,7 @@
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-import Logo from '../../Data/logo.svg'
+import React from "react";
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import Logo from "../../Data/logo.svg";
 
 function Title() {
   return (
@@ -14,7 +15,7 @@ function Title() {
               width="50"
               height="50"
               className="d-inline-block align-center"
-            />{' '}
+            />{" "}
             Aprendendo Libras
           </Navbar.Brand>
         </Container>
