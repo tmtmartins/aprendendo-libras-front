@@ -1,34 +1,39 @@
 [
   {
-    "name": "item 1",
-    "redirect": "item1",
+    "name": "Libras",
+    "redirect": "libras",
     "id": 1
   },
   {
-    "name": "item 3",
-    "redirect": "item3",
-    "id": 6
-  },
-  {
-    "name": "item 2",
-    "redirect": "item2",
+    "name": "Jogos",
+    "redirect": "games",
     "id": 2,
     "children": [
       {
-        "name": "subitem 1",
-        "redirect": "subitem1",
+        "name": "Alfabeto",
+        "redirect": "alfabeto",
         "id": 3
       },
       {
-        "name": "subitem 2",
-        "redirect": "subitem2",
+        "name": "Gerador de Palavras",
+        "redirect": "gerador-palavras",
         "id": 4
       },
       {
-        "name": "subitem 3",
-        "redirect": "subitem3",
+        "name": "Jogo da Forca",
+        "redirect": "jogo-forca",
         "id": 5
+      },
+      {
+        "name": "Jogo da memória",
+        "redirect": "jogo-memoria",
+        "id": 6
       }
     ]
+  },
+  {
+    "name": "Sobre nós",
+    "redirect": "about",
+    "id": 7
   }
 ]

@@ -34,14 +34,15 @@ const Menu = () => {
 
   return (
     <Navbar bg="light" expand="lg">
-      <Container>
+      <Container fluid>
         <Title />
-        <Navbar.Collapse role="navigation" id="basic-navbar-nav">
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse role="navigation" id="navbarScroll">
           <StyledNavbar className="navbar">
             {navData.map((element) => {
               if (!element.children) {
                 return (
-                  <li key={element.id}>
+                  <div key={element.id}>
                     <StyledNavbar.Link
                       onMouseOver={(event) =>
                         changeBackground(event, bgNewColor)
@@ -53,11 +54,11 @@ const Menu = () => {
                     >
                       {element.name}
                     </StyledNavbar.Link>
-                  </li>
+                  </div>
                 );
               }
               return (
-                <li
+                <div
                   key={element.id}
                   className="header-nav-options options-hover"
                 >
@@ -80,7 +81,7 @@ const Menu = () => {
                         );
                       })}
                   </StyledNavbarDropdown>
-                </li>
+                </div>
               );
             })}
           </StyledNavbar>
