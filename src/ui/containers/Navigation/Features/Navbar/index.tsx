@@ -1,10 +1,9 @@
 import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
+import { StyledNavbar, StyledNavbarDropdown } from "./styles";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import { useReducer } from "react";
+import { useState } from "react";
 import Title from "../Title";
-import React from "react";
+import { Nav, NavDropdown } from "react-bootstrap";
 
 export type TItemMenu = {
   name: string;
@@ -15,45 +14,76 @@ export type TItemMenu = {
 
 const Menu = () => {
   const navData: Array<TItemMenu> = require("../../Data/data.json");
-  const [showSubMenu, setShowSubMenu] = useReducer((bool) => !bool, false);
+
+  const bgOldColor = "#f8f9fa";
+  const bgNewColor = "#f4b860";
+
+  const [show, setShow] = useState(false);
+
+  const showDropdown = (event) => {
+    setShow(!show);
+  };
+  const hideDropdown = (event) => {
+    setShow(false);
+  };
+
+  const changeBackground = (event, color) => {
+    event.target.style.borderRadius = "5px";
+    event.target.style.background = color;
+  };
 
   return (
     <Navbar bg="light" expand="lg">
       <Container>
         <Title />
         <Navbar.Collapse role="navigation" id="basic-navbar-nav">
-          <Nav className="navbar">
+          <StyledNavbar className="navbar">
             {navData.map((element) => {
               if (!element.children) {
                 return (
                   <li key={element.id}>
-                    <Nav.Link href={element.redirect}>{element.name}</Nav.Link>
+                    <StyledNavbar.Link
+                      onMouseOver={(event) =>
+                        changeBackground(event, bgNewColor)
+                      }
+                      onMouseOut={(event) =>
+                        changeBackground(event, bgOldColor)
+                      }
+                      href={element.redirect}
+                    >
+                      {element.name}
+                    </StyledNavbar.Link>
                   </li>
                 );
               }
               return (
                 <li
-                  onMouseEnter={setShowSubMenu}
-                  onMouseLeave={setShowSubMenu}
                   key={element.id}
                   className="header-nav-options options-hover"
                 >
-                  <NavDropdown title={element.name}>
-                    {showSubMenu &&
+                  <StyledNavbarDropdown
+                    title={element.name}
+                    show={show}
+                    onMouseEnter={showDropdown}
+                    onMouseLeave={hideDropdown}
+                    onMouseOver={(event) => changeBackground(event, bgNewColor)}
+                    onMouseOut={(event) => changeBackground(event, bgOldColor)}
+                  >
+                    {show &&
                       element.children.map((child) => {
                         return (
                           <li key={child.id}>
-                            <NavDropdown.Item href={child.redirect}>
+                            <StyledNavbarDropdown.Item href={child.redirect}>
                               {child.name}
-                            </NavDropdown.Item>
+                            </StyledNavbarDropdown.Item>
                           </li>
                         );
                       })}
-                  </NavDropdown>
+                  </StyledNavbarDropdown>
                 </li>
               );
             })}
-          </Nav>
+          </StyledNavbar>
         </Navbar.Collapse>
       </Container>
     </Navbar>

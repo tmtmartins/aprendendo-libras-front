@@ -6,7 +6,7 @@ import Logo from "../../Data/logo.svg";
 function Title() {
   return (
     <>
-      <Navbar bg="light">
+      <Navbar bg="light" expand="lg">
         <Container>
           <Navbar.Brand href="/">
             <img

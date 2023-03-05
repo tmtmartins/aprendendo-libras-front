@@ -5,6 +5,11 @@
     "id": 1
   },
   {
+    "name": "item 3",
+    "redirect": "item3",
+    "id": 6
+  },
+  {
     "name": "item 2",
     "redirect": "item2",
     "id": 2,
@@ -13,6 +18,16 @@
         "name": "subitem 1",
         "redirect": "subitem1",
         "id": 3
+      },
+      {
+        "name": "subitem 2",
+        "redirect": "subitem2",
+        "id": 4
+      },
+      {
+        "name": "subitem 3",
+        "redirect": "subitem3",
+        "id": 5
       }
     ]
   }
